@@ -33,3 +33,33 @@ void insertion_sort_list(listint_t **list)
 	current = temp;
     }
 }
+
+
+/**
+ * insertion_sort - similar impelemtation if it were an array
+ * @array: array to be sorted
+ * @size: size of the array
+ * Return: void
+ */
+void insertion_sort(int *array, size_t size)
+{
+    if (array == NULL || size < 2)
+        return;
+
+    int temp;
+    size_t i, j;
+
+    for (i = 1; i < size; i++)
+    {
+        temp = array[i];
+        j = i;
+
+        while (j > 0 && temp < array[j - 1])
+        {
+            array[j] = array[j - 1];
+            j--;
+        }
+
+        array[j] = temp;
+    }
+}
